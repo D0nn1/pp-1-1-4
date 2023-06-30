@@ -13,7 +13,7 @@ public class Main {
         for (int i = 65; i < 70; i++) {
             char buf = (char) i;
             userService.saveUser(String.valueOf(buf), String.valueOf((char) (buf + 1)), (byte) i);
-            System.out.println("пользователь с именем " + ((char) i) + " добавлен");
+            System.out.println("пользователь  с именем " + ((char) i) + " добавлен");
         }
         userService.getAllUsers().forEach(System.out::println);
         userService.cleanUsersTable();
