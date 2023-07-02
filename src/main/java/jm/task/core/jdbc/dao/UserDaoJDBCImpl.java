@@ -7,8 +7,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jm.task.core.jdbc.dao.UserDaoHibernateImpl.name_of_table;
+
 public class UserDaoJDBCImpl implements UserDao {
-    private static final String name_of_table = "users";
+
 
 
     public UserDaoJDBCImpl() {

@@ -1,12 +1,16 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 
-@Table
+import javax.persistence.*;
+
+@Entity
+@Table(name = UserDaoHibernateImpl.name_of_table)
 public class User {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
     @Column
