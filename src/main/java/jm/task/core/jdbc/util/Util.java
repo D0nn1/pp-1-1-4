@@ -25,7 +25,6 @@ public class Util {
         try {
             Configuration configuration = new Configuration();
 
-            // Hibernate settings equivalent to hibernate.cfg.xml's properties
             Properties settings = new Properties();
             settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
             settings.put(Environment.URL, (URL + "?useSSL=false"));
