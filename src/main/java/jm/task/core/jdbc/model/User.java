@@ -5,7 +5,7 @@ import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import javax.persistence.*;
 
 @Entity
-@Table(name = UserDaoHibernateImpl.name_of_table)
+@Table(name = "users")
 public class User {
 
     @Id

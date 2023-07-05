@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.function.Function;
 
 public class UserDaoHibernateImpl implements UserDao {
-    public static final String name_of_table = "users";
 
     public UserDaoHibernateImpl() {
 
@@ -19,7 +18,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void createUsersTable() {
         try {
-            run(session -> session.createSQLQuery("CREATE TABLE `mydbtest`.`" + name_of_table + "` (\n" +
+            run(session -> session.createSQLQuery("CREATE TABLE `mydbtest`.`" + "users" + "` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `name` VARCHAR(45) NOT NULL,\n" +
                     "  `lastName` VARCHAR(45) NOT NULL,\n" +
@@ -36,7 +35,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-        run(session -> session.createSQLQuery("DROP TABLE IF EXISTS " + name_of_table).executeUpdate());
+        run(session -> session.createSQLQuery("DROP TABLE IF EXISTS " + "users").executeUpdate());
 
     }
 

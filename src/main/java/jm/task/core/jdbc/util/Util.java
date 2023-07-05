@@ -14,28 +14,13 @@ public class Util {
     private final static String URL = "jdbc:mysql://localhost:3306/mydbtest";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "admin";
-    private final static Class ANNOTATED_CLASS = User.class;
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 
-    public static Statement getStatement() throws SQLException {
-        return DriverManager.getConnection(URL, USERNAME, PASSWORD).createStatement();
-    }
-
 
     public static SessionFactory getFactory() {
-//        Configuration configuration = new Configuration();
-//        configuration.setProperty("hibernate.connection.url", URL + "?useSSL=false&amp;serverTimezone=UTC");
-//        configuration.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
-//        configuration.setProperty("hibernate.connection.username", USERNAME);
-//        configuration.setProperty("hibernate.connection.password", PASSWORD);
-//        configuration.setProperty("hibernate.current_session_context_class", "thread");
-//        configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-//        configuration.setProperty("hibernate.show_sql", "true");
-//        configuration.addAnnotatedClass(User.class);
-//        return configuration.buildSessionFactory();
         SessionFactory sessionFactory = null;
         try {
             Configuration configuration = new Configuration();
