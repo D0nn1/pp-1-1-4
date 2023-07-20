@@ -10,7 +10,6 @@ import java.util.List;
 public class UserDaoJDBCImpl implements UserDao {
 
 
-
     public UserDaoJDBCImpl() {
 
     }
@@ -44,7 +43,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void saveUser(String name, String lastName, byte age) {
         try (PreparedStatement preparedStatement = Util.getConnection()
-                .prepareStatement("insert into users (name, lastName, age) values(?,?,?)")) {
+                .prepareStatement("INSERT INTO users (name, lastName, age) VALUES(?,?,?)")) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, lastName);
             preparedStatement.setInt(3, age);
@@ -55,19 +54,11 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
 
-
     public void removeUserById(long id) {
         try (Connection connection = Util.getConnection();
-             PreparedStatement selectStatement = connection.prepareStatement("SELECT COUNT(*) FROM Users WHERE id = ?");
              PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM Users WHERE id = ?")) {
-
-            selectStatement.setLong(1, id);
-
-            if (selectStatement.executeQuery().next()) {
-                deleteStatement.setLong(1, id);
-                deleteStatement.executeUpdate();
-            }
-
+            deleteStatement.setLong(1, id);
+            deleteStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -78,7 +69,7 @@ public class UserDaoJDBCImpl implements UserDao {
         List<User> users = new ArrayList<>();
         try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery("select * from users;");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users;");
             while (resultSet.next()) {
                 User user = new User(resultSet.getString("name"),
                         resultSet.getString("lastName"),
